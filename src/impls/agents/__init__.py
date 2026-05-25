@@ -4,10 +4,10 @@ from impls.agents.crl_search import CRLSearchAgent
 from impls.agents.dqn import GCDQNAgent
 from impls.agents.dqn_lstm import GCDQNLSTMAgent
 from impls.agents.dqn_interp import GCDQNInterpAgent
-from impls.agents.dqn_recnet import GCDQNRecAgent
+# from impls.agents.dqn_recnet import GCDQNRecAgent
 from impls.agents.gcbc import GCBCAgent
 from impls.agents.gciql import GCIQLAgent
-from impls.agents.gciql_lstm import GCIQLLSTMAgent
+# from impls.agents.gciql_lstm import GCIQLLSTMAgent
 from impls.agents.gciql_search import GCIQLSearchAgent
 from impls.agents.qrl import QRLAgent
 from impls.agents.sac import SACAgent
@@ -113,13 +113,13 @@ def create_agent(config: ml_collections.FrozenConfigDict, example_batch: dict, s
             example_batch['actions'],
             config,
         )
-    elif config.agent_name == "gciql_lstm":
-        agent = GCIQLLSTMAgent.create(
-            seed,
-            example_batch['observations'],
-            example_batch['actions'],
-            config,
-        )
+    # elif config.agent_name == "gciql_lstm":
+    #     agent = GCIQLLSTMAgent.create(
+    #         seed,
+    #         example_batch['observations'],
+    #         example_batch['actions'],
+    #         config,
+    #     )
     elif config.agent_name == "gcdqn_interp":
         agent = GCDQNInterpAgent.create(
             seed,
@@ -127,13 +127,13 @@ def create_agent(config: ml_collections.FrozenConfigDict, example_batch: dict, s
             example_batch['actions'],
             config,
         )
-    elif config.agent_name == "gcdqn_recnet":
-        agent = GCDQNRecAgent.create(
-            seed,
-            example_batch['observations'],
-            example_batch['actions'],
-            config,
-        )
+    # elif config.agent_name == "gcdqn_recnet":
+    #     agent = GCDQNRecAgent.create(
+    #         seed,
+    #         example_batch['observations'],
+    #         example_batch['actions'],
+    #         config,
+    #     )
     else:
         raise ValueError(f"Unknown agent class {config.agent_name}")
 
